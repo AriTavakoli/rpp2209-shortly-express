@@ -82,10 +82,6 @@ app.get('/signup', (req, res, next) => {
 });
 
 app.post('/signup', (req, res, next) => {
-  // console.log('post signup');
-  // console.log(req.body);
-  // console.log(req.body.username);
-
   const username = req.body.username;
   const password = req.body.password;
 
