@@ -3,7 +3,6 @@ const parseCookies = (req, res, next) => {
   if (req.headers.cookie) {
     const cookies = req.headers.cookie.split('; ');
 
-
     for (var i = 0; i < cookies.length; i++) {
       const cookieParsed = cookies[i].split('=');
       cookieObj[cookieParsed[0]] = cookieParsed[1];
