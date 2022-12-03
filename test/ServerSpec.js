@@ -537,9 +537,20 @@ describe('', function() {
           WHERE sessions.hash = ? AND users.id = sessions.userId
         `;
 
+        var queryString2 = `
+        SELECT * FROM sessions
+        WHERE sessions.hash = ?
+        `;
+
+        db.query(queryString2, cookieValue, function(error, users) {
+          if (error) { return done(error); }
+          console.log('in the test first', users);
+        });
+
         db.query(queryString, cookieValue, function(error, users) {
           if (error) { return done(error); }
           var user = users[0];
+          console.log('in the test printing user', users);
           expect(user.username).to.equal('Vivian');
           done();
         });
